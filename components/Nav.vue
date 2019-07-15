@@ -28,7 +28,9 @@
       :class="{ 'is-active': menuActive }"
     >
       <div class="navbar-start">
-        <a class="navbar-item">このサイトについて</a>
+        <nuxt-link class="navbar-item" to="/about">
+          このサイトについて
+        </nuxt-link>
       </div>
       <a class="navbar-item">ランキング</a>
       <div class="navbar-item has-dropdown is-hoverable">

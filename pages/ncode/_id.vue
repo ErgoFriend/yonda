@@ -7,8 +7,10 @@
       :rating="5"
       :author="{ id: syousetu.userid, name: syousetu.writer }"
     />
-    <Rate />
-    <Rate />
+    <div class="rates">
+      <Rate />
+      <Rate />
+    </div>
   </div>
 </template>
 
@@ -42,3 +44,11 @@ export default {
   }
 }
 </script>
+<style lang="sass" scoped>
+.rates
+  padding: 2rem
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+</style>
