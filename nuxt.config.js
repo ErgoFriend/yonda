@@ -40,11 +40,13 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/vue-star-rating'],
   /*
    ** Nuxt.js modules
    */
   modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     '@nuxtjs/eslint-module',
     [
       'nuxt-buefy',
@@ -53,6 +55,14 @@ export default {
       }
     ]
   ],
+  proxy: {
+    '/api': {
+      target: 'https://api.syosetu.com',
+      pathRewrite: {
+        '^/api': '/'
+      }
+    }
+  },
   /*
    ** Build configuration
    */

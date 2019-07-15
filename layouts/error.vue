@@ -4,8 +4,11 @@
       Page not found
     </h1>
     <h1 v-else>
-      An error occurred
+      An error occurred.
+      <br />
+      {{ error }}
     </h1>
+    <br />
     <nuxt-link to="/">
       Home page
     </nuxt-link>
@@ -15,7 +18,14 @@
 <script>
 export default {
   props: {
-    error: String
+    error: {
+      type: Object,
+      default: function() {
+        return {
+          statusCode: -1
+        }
+      }
+    }
   }
   // layout: 'blog' // you can set a custom layout for the error page
 }

@@ -1,36 +1,22 @@
 <template>
+  <!-- eslint-disable -->
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        yonda
-      </h1>
-      <h2 class="subtitle">
-        My exquisite Nuxt.js project
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+    <div style="display: flex; flex-direction: column;">
+      <nuxt-link :to="{ name: 'ncode-id', params: {id: 'n4845ec'}}">「「神と呼ばれ、魔王と呼ばれても」」</nuxt-link>
+      <nuxt-link :to="{ name: 'ncode-id', params: {id: 'n7673ff'}}">転生した大聖女は、聖女であることをひた隠す</nuxt-link>
+      <nuxt-link :to="{ name: 'ncode-id', params: {id: 'n9418eg'}}">モンスターがあふれる世界になったので、好きに生きたいと思います</nuxt-link>
+      <nuxt-link :to="{ name: 'ncode-id', params: {id: 'n0979ew'}}">項羽と劉邦、あと田中</nuxt-link>
+      <nuxt-link :to="{ name: 'ncode-id', params: {id: 'n0859fa'}}">人類が増えすぎたので減らしてほしいと頼まれました</nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+// import Rate from '~/components/Rate/index.vue'
+// import Syousetu from '~/components/Syousetu/index.vue'
 
 export default {
-  components: {
-    Logo
-  }
+  components: {}
 }
 </script>
 
