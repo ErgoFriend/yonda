@@ -33,23 +33,22 @@
         </nuxt-link>
       </div>
       <a class="navbar-item">ランキング</a>
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">ジャンル</a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item">About</a>
-          <a class="navbar-item">Jobs</a>
-          <a class="navbar-item">Contact</a>
-          <hr class="navbar-divider" />
-          <nuxt-link class="navbar-item" :to="{ name: 'settings' }">
-            設定
-          </nuxt-link>
-        </div>
-      </div>
 
       <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link"><User /></a>
+
+          <div class="navbar-dropdown">
+            <a class="navbar-item">About</a>
+            <a class="navbar-item">Jobs</a>
+            <a class="navbar-item">Contact</a>
+            <hr class="navbar-divider" />
+            <nuxt-link class="navbar-item" :to="{ name: 'settings' }">
+              設定
+            </nuxt-link>
+          </div>
+        </div>
         <div class="navbar-item">
-          <User />
           <div class="buttons">
             <a class="button is-primary">
               <strong>Sign up</strong>

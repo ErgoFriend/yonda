@@ -1,41 +1,61 @@
 <template>
   <div class="container" style="display: flex; flex-direction: column;">
     <div style="display: flex; flex-direction: column;">
-      <nuxt-link :to="{ name: 'ncode-id', params: { id: 'n4845ec' } }">
-        「「神と呼ばれ、魔王と呼ばれても」」
-      </nuxt-link>
-      <nuxt-link :to="{ name: 'ncode-id', params: { id: 'n7673ff' } }">
-        転生した大聖女は、聖女であることをひた隠す
-      </nuxt-link>
-      <nuxt-link :to="{ name: 'ncode-id', params: { id: 'n9418eg' } }">
-        モンスターがあふれる世界になったので、好きに生きたいと思います
-      </nuxt-link>
-      <nuxt-link :to="{ name: 'ncode-id', params: { id: 'n0979ew' } }">
-        項羽と劉邦、あと田中
-      </nuxt-link>
-      <nuxt-link :to="{ name: 'ncode-id', params: { id: 'n0859fa' } }">
-        人類が増えすぎたので減らしてほしいと頼まれました
-      </nuxt-link>
-    </div>
-    <div style="display: flex; flex-direction: column;">
-      <Login />
-      <Create />
-      <Contact />
+      <Syousetu
+        v-for="syousetu in syousetu_list"
+        :key="syousetu.ncode"
+        :ncode="syousetu.ncode"
+        :title="syousetu.title"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import Create from '~/components/Auth/Create.vue'
-import Login from '~/components/Auth/Login.vue'
-import Contact from '~/components/Contact.vue'
 // import Syousetu from '~/components/Syousetu/index.vue'
+import Syousetu from '~/components/Syousetu/item.vue'
 
 export default {
-  components: {
-    Create,
-    Login,
-    Contact
+  components: { Syousetu },
+  // data() {
+  //   return {
+  //     syousetu_list: [
+  //       {
+  //         ncode: 'n4845ec',
+  //         title: '「「神と呼ばれ、魔王と呼ばれても」」'
+  //       },
+  //       {
+  //         ncode: 'n7673ff',
+  //         title: '転生した大聖女は、聖女であることをひた隠す'
+  //       },
+  //       {
+  //         ncode: 'n9418eg',
+  //         title:
+  //           'モンスターがあふれる世界になったので、好きに生きたいと思います'
+  //       },
+  //       {
+  //         ncode: 'n0979ew',
+  //         title: '項羽と劉邦、あと田中'
+  //       },
+  //       {
+  //         ncode: 'n0859fa',
+  //         title: '人類が増えすぎたので減らしてほしいと頼まれました'
+  //       }
+  //     ]
+  //   }
+  // },
+  async asyncData(context) {
+    /* eslint-disable no-console */
+    console.time('axios')
+    /* eslint-enable no-console */
+    const targetURL =
+      'http://localhost:3000/api/novelapi/api/?ispickup=1&order=hyoka&lim=50&out=json'
+    const data = await context.app.$axios.$get(targetURL, { useCache: true })
+    /* eslint-disable no-console */
+    console.timeEnd('axios')
+    // console.log(data[1])
+    /* eslint-enable no-console */
+    return { syousetu_list: data.slice(1) }
   }
 }
 </script>

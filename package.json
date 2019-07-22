@@ -15,8 +15,11 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.5.4",
+    "axios-extensions": "^3.0.6",
+    "axios-jsonp": "^1.0.2",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.10",
+    "vue-jsonp": "^0.1.8",
     "vue-star-rating": "^1.6.1",
     "yomoujs": "^0.0.3"
   },

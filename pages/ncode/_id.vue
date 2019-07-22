@@ -25,20 +25,16 @@ export default {
     Syousetu
   },
   async asyncData(context) {
-    // const data = await yomou.getSyousetu(context.params.id)
-    const data = await context.app.$axios.$get(
-      'http://localhost:3000/api//novelapi/api/?libtype=2&out=json&ncode=' +
-        context.params.id,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
-        data: {}
-      }
-    )
     /* eslint-disable no-console */
-    console.log(data[1])
+    console.time('axios')
+    /* eslint-enable no-console */
+    const targetURL =
+      'http://localhost:3000/api/novelapi/api/?libtype=2&out=json&ncode=' +
+      context.params.id
+    const data = await context.app.$axios.$get(targetURL, { useCache: true })
+    /* eslint-disable no-console */
+    console.timeEnd('axios')
+    console.log(data[1].ncode, data[1].title)
     /* eslint-enable no-console */
     return { syousetu: data[1] }
   }
